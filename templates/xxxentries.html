@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activity Entries</title>
+    <style>
+        body { background: #f0f4f8; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; }
+    .container { max-width: 2000px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 32px; }
+        h2 { text-align: center; color: #2a3b4d; margin-bottom: 32px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 8px 10px; border-bottom: 1px solid #e0eafc; text-align: left; font-size: 0.97rem; }
+        th { background: #e0eafc; color: #2a3b4d; font-weight: 600; }
+        tr:hover { background: #f7fafc; }
+        @media (max-width: 900px) {
+            .container { padding: 10px; }
+            th, td { font-size: 0.85rem; }
+        }
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            th { position: absolute; top: -9999px; left: -9999px; }
+            td { border: none; position: relative; padding-left: 50%; }
+            td:before { position: absolute; left: 10px; top: 8px; width: 45%; white-space: nowrap; font-weight: bold; color: #3a4a5d; }
+            td:nth-of-type(1):before { content: "RecId"; }
+            td:nth-of-type(2):before { content: "EMPL_ID"; }
+            td:nth-of-type(3):before { content: "TaskDate"; }
+            td:nth-of-type(4):before { content: "TaskType"; }
+            td:nth-of-type(5):before { content: "TaskCount"; }
+            td:nth-of-type(6):before { content: "TaskHours"; }
+            td:nth-of-type(7):before { content: "Creat_DT"; }
+            td:nth-of-type(8):before { content: "Creat_User"; }
+            td:nth-of-type(9):before { content: "Modify_DT"; }
+            td:nth-of-type(10):before { content: "Modify_User"; }
+            td:nth-of-type(11):before { content: "Authorized"; }
+            td:nth-of-type(12):before { content: "Remarks"; }
+            td:nth-of-type(13):before { content: "MgrRemarks"; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="text-align:right;margin-bottom:18px;">
+                <a href="/" style="display:inline-block;text-align:center;text-decoration:none;width:160px;background:#e0eafc;color:#2a3b4d;border-radius:8px;padding:10px 0;font-size:1rem;font-weight:500;cursor:pointer;margin-right:8px;">Add New</a>
+                <a href="/logout" style="display:inline-block;text-align:center;text-decoration:none;width:160px;background:#e0eafc;color:#2a3b4d;border-radius:8px;padding:10px 0;font-size:1rem;font-weight:500;cursor:pointer;">Logout</a>
+        </div>
+        <h2>Activity Entries</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>RecId</th>
+                    <th>EMPL_ID</th>
+                    <th>TaskDate</th>
+                    <th>TaskType</th>
+                    <th>TaskCount</th>
+                    <th>TaskHours</th>
+                    <th>Creat_DT</th>
+                    <th>Creat_User</th>
+                    <th>Modify_DT</th>
+                    <th>Modify_User</th>
+                    <th>Authorized</th>
+                    <th>Remarks</th>
+                    <th>MgrRemarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry[0] }}</td>
+                    <td>{{ entry[1] }}</td>
+                    <td>{{ entry[2] }}</td>
+                    <td>{{ entry[3] }}</td>
+                    <td>{{ entry[4] }}</td>
+                    <td>{{ entry[5] }}</td>
+                    <td>{{ entry[6] }}</td>
+                    <td>{{ entry[7] }}</td>
+                    <td>{{ entry[8] }}</td>
+                    <td>{{ entry[9] }}</td>
+                    <td>{{ entry[10] }}</td>
+                    <td>{{ entry[11] }}</td>
+                    <td>{{ entry[12] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

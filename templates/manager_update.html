@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manager Update Entry</title>
+    <style>
+      body {
+        background: #f0f4f8;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        padding: 32px;
+      }
+      h2 {
+        text-align: center;
+        color: #2a3b4d;
+        margin-bottom: 32px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #2a3b4d;
+        font-weight: 500;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 18px;
+        border-radius: 6px;
+        border: 1px solid #e0eafc;
+        font-size: 1rem;
+      }
+      .btn {
+        background: #2a3b4d;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 0;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        width: 100%;
+      }
+      .btn:hover {
+        background: #1a2533;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Manager Update Entry</h2>
+      <div
+        style="
+          margin-bottom: 24px;
+          padding: 18px;
+          background: #e0eafc;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        "
+      >
+        <h3 style="margin: 0 0 10px 0; color: #2a3b4d">Entry Details</h3>
+        <table style="width: 100%; font-size: 1rem; color: #2a3b4d">
+          <tr>
+            <td><strong>RecId:</strong></td>
+            <td>{{ entry[0] }}</td>
+          </tr>
+          <tr>
+            <td><strong>Created User:</strong></td>
+            <td>{{ entry[7] }}</td>
+          </tr>
+          <tr>
+            <td><strong>Created Date:</strong></td>
+            <td>{{ entry[6] }}</td>
+          </tr>
+          <tr>
+            <td><strong>Task Type:</strong></td>
+            <td>{{ entry[3] }}</td>
+          </tr>
+          <tr>
+            <td><strong>Task Count:</strong></td>
+            <td>{{ entry[4] }}</td>
+          </tr>
+          <tr>
+            <td><strong>Task Hours:</strong></td>
+            <td>{{ entry[5] }}</td>
+          </tr>
+          <tr>
+            <td><strong>Remarks:</strong></td>
+            <td>{{ entry[11] }}</td>
+          </tr>
+        </table>
+      </div>
+      <form method="post" action="/manager_update">
+        <input type="hidden" name="RecId" value="{{ entry[0] }}" />
+        <label>Authorized</label>
+        <select name="Authorized">
+            <option value="Authorized" selected>Authorized</option>
+          <option value="ToAuthorize">ToAuthorize</option>
+          <option value="NotAuthorized">NotAuthorized</option>
+        </select>
+        <label>Manager Remarks</label>
+        <textarea name="MgrRemarks" rows="3">{{ entry[12] }}</textarea>
+        <button type="submit" class="btn">Save</button>
+      </form>
+      <a
+        href="/entries_manager"
+        style="
+          display: block;
+          text-align: center;
+          margin-top: 18px;
+          color: #2a3b4d;
+          text-decoration: none;
+        "
+        >Back to Manager Entries</a
+      >
+    </div>
+  </body>
+</html>

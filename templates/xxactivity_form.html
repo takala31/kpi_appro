@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Daily Activity</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #f0f4f8 0%, #e0eafc 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .card {
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            max-width: 520px;
+            margin: 48px auto;
+            padding: 32px 36px 24px 36px;
+        }
+        h2 {
+            text-align: center;
+            color: #2a3b4d;
+            margin-bottom: 32px;
+        }
+        label {
+            display: block;
+            margin-top: 18px;
+            color: #3a4a5d;
+            font-weight: 500;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 5px 8px;
+            margin-top: 7px;
+            border: 1px solid #cfd8dc;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background: #f7fafc;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 28px;
+            resize: vertical;
+        }
+        input:focus, textarea:focus {
+            border-color: #5b9df9;
+            outline: none;
+        }
+        button {
+            margin-top: 28px;
+            padding: 12px 0;
+            width: 100%;
+            background: linear-gradient(90deg, #5b9df9 0%, #3a8dde 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(90,157,249,0.08);
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #3a8dde 0%, #5b9df9 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Capture User Daily Activity</h2>
+        <form method="POST">
+            <label for="RecId">RecId</label>
+            <input type="text" name="RecId" value="1" required>
+
+            <label for="EMPL_ID">EMPL_ID</label>
+            <input type="text" name="EMPL_ID" value="1" required>
+
+            <label for="TaskDate">TaskDate</label>
+            <input type="date" name="TaskDate" value="2025-08-22" required>
+
+            <label for="TaskType">TaskType</label>
+            <input type="text" name="TaskType" value="Customer Meeting 30" required>
+
+            <label for="TaskCount">TaskCount</label>
+            <input type="number" name="TaskCount" value="1" required>
+
+            <label for="TaskHours">TaskHours</label>
+            <input type="number" step="0.01" name="TaskHours" value="60" required>
+
+            <label for="Creat_DT">Creat_DT</label>
+            <input type="datetime-local" name="Creat_DT" value="2025-08-22 18:30" required>
+
+            <label for="Creat_User">Creat_User</label>
+            <input type="text" name="Creat_User" value="Khalid Takala" required>
+
+            <label for="Modify_DT">Modify_DT</label>
+            <input type="datetime-local" name="Modify_DT" value="2025-08-22 18:30" required>
+
+            <label for="Modify_User">Modify_User</label>
+            <input type="text" name="Modify_User" value="Khalid Takala" required>
+
+            <label for="Authorized">Authorized</label>
+            <input type="text" name="Authorized" value="Yes" required>
+
+            <label for="Remarks">Remarks</label>
+            <textarea name="Remarks" rows="2">Remarks text here</textarea>
+
+            <label for="MgrRemarks">MgrRemarks</label>
+            <textarea name="MgrRemarks" rows="2">Manager remarks here</textarea>
+
+            <button type="submit">Submit</button>
+            <a href="/entries" style="display:block;margin-top:18px;text-align:center;text-decoration:none;">
+                <button type="button" style="width:100%;background:#e0eafc;color:#2a3b4d;border:none;border-radius:8px;padding:10px 0;font-size:1rem;font-weight:500;cursor:pointer;">View All Entries</button>
+            </a>
+        </form>
+    </div>
+</body>
+</html>
