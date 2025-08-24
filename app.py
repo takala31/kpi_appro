@@ -4,7 +4,7 @@ import psycopg2
 import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Change this to a strong secret key
+app.secret_key = '123'  # Change this to a strong secret key
 
 # Update these with your actual DB credentials
 DB_HOST = os.getenv('DB_HOST', 'localhost')
