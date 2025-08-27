@@ -6,11 +6,11 @@ import os
 app = Flask(__name__)
 app.secret_key = '123'  # Change this to a strong secret key
 
-# Update these with your actual DB credentials
-DB_HOST = os.getenv('DB_HOST', 'localhost')
-DB_NAME = os.getenv('DB_NAME', 'testdb')
-DB_USER = os.getenv('DB_USER', 'postgres')
-DB_PASS = os.getenv('DB_PASS', 'Ktl@1965')
+# Use environment variables for Render PostgreSQL connection
+DB_HOST = os.getenv('DB_HOST', 'dpg-d2lprsre5dus7393g5ug-a.oregon-postgres.render.com')
+DB_NAME = os.getenv('DB_NAME', 'kt_database')
+DB_USER = os.getenv('DB_USER', 'khalid')
+DB_PASS = os.getenv('DB_PASS', 'uK52MUGlKITZ7tNjQxftCMwpwg957oZ5')
 
 @app.route('/entries_manager')
 def show_manager_entries():

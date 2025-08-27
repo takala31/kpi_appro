@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "dpg-d2lprsre5dus7393g5ug-a.oregon-postgres.render.com",
+            "driver": "PostgreSQL",
+            "name": "cnTest",
+            "connectString": "postgresql://khalid:uK52MUGlKITZ7tNjQxftCMwpwg957oZ5@dpg-d2lprsre5dus7393g5ug-a.oregon-postgres.render.com/kt_database",
+            "connectionTimeout": 300,
+            "database": "kt_database",
+            "username": "khalid",
+            "password": "uK52MUGlKITZ7tNjQxftCMwpwg957oZ5"
+        }
+    ]
+}
