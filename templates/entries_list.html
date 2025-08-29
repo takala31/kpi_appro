@@ -47,37 +47,27 @@
         <table>
             <thead>
                 <tr>
-                    <th>RecId</th>
-                    <th>EMPL_ID</th>
-                    <th>TaskDate</th>
-                    <th>TaskType</th>
-                    <th>TaskCount</th>
-                    <th>TaskHours</th>
-                    <th>Creat_DT</th>
-                    <th>Creat_User</th>
-                    <th>Modify_DT</th>
-                    <th>Modify_User</th>
-                    <th>Authorized</th>
-                    <th>Remarks</th>
-                    <th>MgrRemarks</th>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Date</th>
+                        <th>Task Description</th>
+                        <th>Task Hours</th>
+                        <th>Remarks</th>
+                        <th>Manager Remarks</th>
+                        <th>Authorized</th>
                 </tr>
             </thead>
             <tbody>
                 {% for entry in entries %}
                 <tr>
-                    <td>{{ entry[0] }}</td>
-                    <td>{{ entry[1] }}</td>
-                    <td>{{ entry[2] }}</td>
-                    <td>{{ entry[3] }}</td>
-                    <td>{{ entry[4] }}</td>
-                    <td>{{ entry[5] }}</td>
-                    <td>{{ entry[6] }}</td>
-                    <td>{{ entry[7] }}</td>
-                    <td>{{ entry[8] }}</td>
-                    <td>{{ entry[9] }}</td>
-                    <td>{{ entry[10] }}</td>
-                    <td>{{ entry[11] }}</td>
-                    <td>{{ entry[12] }}</td>
+                        <td>{{ entry[0] }}</td>
+                        <td>{{ entry[1] }}</td>
+                        <td>{{ entry[2] }}</td>
+                        <td>{{ entry[3] }}</td>
+                        <td>{{ entry[4] }}</td>
+                        <td>{{ entry[5] }}</td>
+                        <td>{{ entry[6] }}</td>
+                        <td>{{ entry[7] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
