@@ -45,6 +45,15 @@
                 <a href="/logout" style="display:inline-block;text-align:center;text-decoration:none;width:160px;background:#e0eafc;color:#2a3b4d;border-radius:8px;padding:10px 0;font-size:1rem;font-weight:500;cursor:pointer;">Logout</a>
         </div>
         <h2>Activity Entries List</h2>
+        <form method="get" style="margin-bottom:20px;">
+            <label for="user">Filter by Created User:</label>
+            <select name="user" id="user" onchange="this.form.submit()" style="padding:6px 10px; border-radius:6px; border:1px solid #cfd8dc;">
+                <option value="all">All Users</option>
+                {% for user in users %}
+                    <option value="{{ user }}" {% if user_filter == user %}selected{% endif %}>{{ user }}</option>
+                {% endfor %}
+            </select>
+        </form>
         <table>
             <thead>
                 <tr>

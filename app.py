@@ -128,6 +128,7 @@ def logout():
 @app.route('/entries')
 def show_entries():
     try:
+        user_filter = request.args.get('user')
         conn = psycopg2.connect(
             host=DB_HOST,
             dbname=DB_NAME,
@@ -135,12 +136,18 @@ def show_entries():
             password=DB_PASS
         )
         cur = conn.cursor()
-        # cur.execute("SELECT RecId, TaskDate, TaskType, TaskCount, TaskHours, Creat_DT, Creat_User, Authorized, Remarks, MgrRemarks FROM employeetasks ORDER BY RecId DESC")
-        cur.execute("SELECT * FROM entrieslist")
+        # Get all unique users for dropdown
+        cur.execute("SELECT DISTINCT \"user\" FROM entrieslist ORDER BY \"user\"")
+        users = [row[0] for row in cur.fetchall()]
+        # Filter entries if user is selected
+        if user_filter and user_filter != 'all':
+            cur.execute("SELECT * FROM entrieslist WHERE \"user\" = %s", (user_filter,))
+        else:
+            cur.execute("SELECT * FROM entrieslist")
         entries = cur.fetchall()
         cur.close()
         conn.close()
-        return render_template('entries_list.html', entries=entries)
+        return render_template('entries_list.html', entries=entries, users=users, user_filter=user_filter)
     except Exception as e:
         return f"Error: {e}"
 
