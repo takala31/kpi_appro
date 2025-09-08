@@ -1,0 +1,161 @@
+# 📘 OpenSearch / Elasticsearch DSL Manual (Basics)
+
+## 🔹 1. Match Query
+Full-text search on a field.
+```json
+{
+  "query": {
+    "match": {
+      "message": "error log"
+    }
+  }
+}
+```
+- **`match`** → analyzes text (tokenizes).  
+- Useful for searching free-text fields.
+
+---
+
+## 🔹 2. Term Query
+Exact match (no text analysis).
+```json
+{
+  "query": {
+    "term": {
+      "status": "active"
+    }
+  }
+}
+```
+- Best for **keywords, IDs, enums**.
+
+---
+
+## 🔹 3. Range Query
+Numeric, date, or string ranges.
+```json
+{
+  "query": {
+    "range": {
+      "age": {
+        "gte": 18,
+        "lte": 30
+      }
+    }
+  }
+}
+```
+- **`gte`** (≥), **`lte`** (≤), **`gt`** (>), **`lt`** (<).
+
+---
+
+## 🔹 4. Bool Query
+Combine multiple conditions.
+```json
+{
+  "query": {
+    "bool": {
+      "must": [         // AND
+        { "match": { "title": "search" } },
+        { "term": { "status": "active" } }
+      ],
+      "should": [       // OR
+        { "term": { "priority": "high" } }
+      ],
+      "must_not": [     // NOT
+        { "term": { "archived": true } }
+      ]
+    }
+  }
+}
+```
+
+---
+
+## 🔹 5. Wildcard Query
+Basic pattern matching.
+```json
+{
+  "query": {
+    "wildcard": {
+      "username": "john*"
+    }
+  }
+}
+```
+- `*` = zero or more chars  
+- `?` = single char  
+⚠️ Slower on large datasets.
+
+---
+
+## 🔹 6. Prefix Query
+Starts-with search.
+```json
+{
+  "query": {
+    "prefix": {
+      "username": "jo"
+    }
+  }
+}
+```
+
+---
+
+## 🔹 7. Exists Query
+Check if a field exists.
+```json
+{
+  "query": {
+    "exists": {
+      "field": "email"
+    }
+  }
+}
+```
+
+---
+
+## 🔹 8. Aggregations (Basic)
+Group and count results.
+```json
+{
+  "aggs": {
+    "status_count": {
+      "terms": {
+        "field": "status"
+      }
+    }
+  }
+}
+```
+
+---
+
+## 🔹 9. Sorting
+```json
+{
+  "query": { "match_all": {} },
+  "sort": [
+    { "timestamp": { "order": "desc" } }
+  ]
+}
+```
+
+---
+
+## 🔹 10. Pagination
+```json
+{
+  "from": 0,
+  "size": 10,
+  "query": { "match_all": {} }
+}
+```
+- **`from`** = offset  
+- **`size`** = number of results  
+
+---
+
+👉 This covers **90% of daily queries** in OpenSearch / Elasticsearch.  
