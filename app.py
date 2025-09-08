@@ -28,7 +28,9 @@ def show_manager_entries():
             password=DB_PASS
         )
         cur = conn.cursor()
-        cur.execute("SELECT RecId, EMPL_ID, TaskDate, TaskType, TaskCount, TaskHours, Creat_DT, Creat_User, Modify_DT, Modify_User, Authorized, Remarks, MgrRemarks FROM employeetasks ORDER BY RecId DESC")
+        # cur.execute("SELECT RecId, EMPL_ID, TaskDate, TaskType, TaskCount, TaskHours, Creat_DT, Creat_User, Modify_DT, Modify_User, Authorized, Remarks, MgrRemarks FROM employeetasks ORDER BY RecId DESC")
+        # cur.execute("SELECT RecId, TaskDate, TaskType, TaskCount, TaskHours, Creat_DT, Creat_User, Authorized, Remarks, MgrRemarks FROM employeetasks ORDER BY RecId DESC")
+        cur.execute("SELECT * FROM entrieslist")
         entries = cur.fetchall()
         cur.close()
         conn.close()
@@ -133,7 +135,8 @@ def show_entries():
             password=DB_PASS
         )
         cur = conn.cursor()
-        cur.execute("SELECT RecId, EMPL_ID, TaskDate, TaskType, TaskCount, TaskHours, Creat_DT, Creat_User, Modify_DT, Modify_User, Authorized, Remarks, MgrRemarks FROM employeetasks ORDER BY RecId DESC")
+        # cur.execute("SELECT RecId, TaskDate, TaskType, TaskCount, TaskHours, Creat_DT, Creat_User, Authorized, Remarks, MgrRemarks FROM employeetasks ORDER BY RecId DESC")
+        cur.execute("SELECT * FROM entrieslist")
         entries = cur.fetchall()
         cur.close()
         conn.close()
